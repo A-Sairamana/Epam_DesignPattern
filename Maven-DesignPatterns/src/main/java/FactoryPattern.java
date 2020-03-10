@@ -1,0 +1,103 @@
+
+public class FactoryPattern {
+
+	public static class PersonFactory {
+		            public Person getPerson(String name, String gender) {
+		
+		                if(gender.equalsIgnoreCase("M")) {
+		
+		                    return new Male(name);
+		
+		                } else if(gender.equalsIgnoreCase("F")) {
+		
+		                    return new Female(name);
+		
+		                } // So on
+		
+		                return null;
+		
+		            }
+		
+		        }
+}
+		
+		    abstract class Person {
+		
+		        private String name;
+
+				Person(String name) {
+		
+		            this.name = name;
+		
+		        }
+	
+				public char[] getNameAndSalutation;
+		
+				        abstract String getSalutation();
+		
+		
+		        String getNameAndSalutation() {
+					return null;
+		
+		            
+		
+		        }
+		
+		    }
+		
+		
+		    class Male extends Person {
+		
+		        public Male(String name) {
+		
+		            super(name);
+		
+		        }
+		
+		
+		        @Override
+		
+		        String getSalutation() {
+		
+		            return "Mr";
+		
+		        }
+		
+		    }
+		
+		
+		     class Female extends Person {
+		
+		        private static final FactoryPattern.PersonFactory PersonFactory = null;
+
+
+				public Female(String name) {
+		
+		            super(name);
+		
+		        }
+		
+		
+		        @Override
+		
+		        String getSalutation() {
+		
+		            return "Miss/Mrs";
+		
+		        }
+			
+		
+		    public static void main(String[] args) {
+		
+		        Person male = PersonFactory.getPerson("Robinhood", "M");
+				        System.out.println(male.getNameAndSalutation);
+		
+		
+		        Person female = PersonFactory.getPerson("Mary", "F");
+		
+		        System.out.println(female.getNameAndSalutation);
+		
+		    }
+	
+	
+}
